@@ -18,10 +18,10 @@
       "Type" : "AWS::EC2::KeyPair::KeyName",
       "ConstraintDescription" : "must be the name of an existing EC2 KeyPair."
     },
-    "Tag" : {
-      "Description" : "Tag for CodeDeploy",
+    "IamRoleProfile" : {
+      "Description" : "Ec2 Role profile",
       "Type" : "String",
-      "ConstraintDescription" : "must have for CodeDeploy to identify."
+      "ConstraintDescription" : "CodeDeploy EC2 role profile."
     },
     "SSHLocation" : {
       "Description" : "The IP address range that can be used to SSH to the EC2 instances",
@@ -195,6 +195,7 @@
                         { "Fn::FindInMap" : [ "AWSInstanceType2Arch", { "Ref" : "InstanceType" }, "Arch" ] } ] },
         "SecurityGroups" : [ { "Ref" : "InstanceSecurityGroup" } ],
         "InstanceType" : { "Ref" : "InstanceType" },
+        "IamInstanceProfile" : {"Ref" : "IamRoleProfile" },
         "KeyName" : { "Ref" : "KeyName" },
         "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
              "#!/bin/bash -xe\n",
