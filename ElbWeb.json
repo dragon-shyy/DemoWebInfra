@@ -204,6 +204,7 @@
              "aws s3 cp s3://aws-codedeploy-us-east-1/latest/install . --region us-east-1 \n",
              "chmod +x ./install\n",
              "./install auto\n",
+             "yum install -y git\n",
              "yum update -y aws-cfn-bootstrap\n",
              "/opt/aws/bin/cfn-init -v ",
              "         --stack ", { "Ref" : "AWS::StackName" },
