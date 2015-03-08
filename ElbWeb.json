@@ -121,7 +121,7 @@
          "Key" : "Name",
          "Value" : "CodeDeployWeb",
          "PropagateAtLaunch" : "true"
-      }]
+      }],
       "CreationPolicy" : {
         "ResourceSignal" : {
           "Timeout" : "PT15M"
